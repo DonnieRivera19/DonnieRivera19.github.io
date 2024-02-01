@@ -1,33 +1,116 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shelba's Amazing Website</title>
+    <title>hey welcome to my website</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background: rgb(38, 28, 230);
+        color: rgb(11, 219, 35);
+        padding: 10px;
+        font-family: roboto;
+      }
+      #all-contents {
+        max-width: 800px;
+        margin: auto;
+      }
+
+      /* navigation menu */
+      nav {
+        background: #000000;
+        margin: 0 auto;
+        display: flex;
+        padding: 10px;
+        border: 10px grgb(5, 255, 5)
+      }
+      h1 {
+        display: flex;
+        align-items: center;
+        color: rgb(0, 255, 64);
+        flex: 1;
+        margin: 0;
+      }
+      #nav-ul {
+        list-style-image: none;
+      }
+      .nav-li {
+        display: inline-block;
+        padding: 0 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #13e56a;
+      }
+
+      /* main container area beneath menu */
+      main {
+        background: rgb(0, 0, 0);
+        display: flex;
+      }
+      .sidebar {
+        margin-right: 25px;
+        padding: 10px;
+      }
+      .sidebar-img {
+        width: 200px;
+      }
+      .content {
+        flex: 1;
+        padding: 15px;
+      }
+
+      /* portfolio styles */
+      #interests {
+        border: 4px silver ridge;
+        padding: 8px;
+      }
+      h2,
+      h3 {
+        margin: 0px;
+      }
+
+      #ALL-CONTENTS {
+        max-width: 800px;
+        margin: auto;
+      }
+      nav {
+       background: rgb(0, 0, 0);
+       margin: 0 auto;
+       display: flex;
+       padding: 10px;
+   }
+
+    </style>
+
     <body>
-      <div>
+      <!---All Content goes here-->
+      <div id="ALL-CONTENTS">
         <nav>
           <h1>Donovan's Glorious website</h1>
-          <ul>
-            <li>
+          <ul id="nav-ul">
+            <li class="nav-li">
               <a href="index.html"> Home</a>
             </li>
-            <li>
+            <li class="nav-li">
               <a href="portfolio.html"> portfolio</a>
             </li>
           </ul>
         </nav>
         <main>
           <!-- Sidebar Section-->
-          <div>
+          <div class="sidebar">
             <img
+              class="sidebar-img"
               src="https://t4.ftcdn.net/jpg/01/13/11/75/360_F_113117585_tyTogdlkvptCHN66JVl3BROJOKwjyD3h.jpg"
+            
             />
           </div>
           <!--Content Section-->
-          <div>
+          <div class="content">
             <h2>Donovan Rivera</h2>
-            <p>Studen at East Ascension High</p>
+            <p>Student at East Ascension High</p>
             <!--Interest Section-->
-            <div>
+            <div id="Interests">
               <h3>Interests</h3>
               <ul>
                 <li>Soccer</li>
