@@ -9,7 +9,7 @@
 }
 
 #portfolio li {
-  background: #fff;
+  background: #fb19ac;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -21,14 +21,90 @@
 
 #portfolio a {
   text-decoration: none;
-  color: #454545;
+  color: #00ff95;
 }
 
- /* responsive web design */
- @media screen and (min-width: 120px) and (max-width: 1080px) {
+body {
+  background: rgb(38, 28, 230);
+  color: rgb(11, 219, 35);
+  padding: 10px;
+  font-family: roboto;
+}
+#all-contents {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* navigation menu */
+nav {
+  background: #ffffff;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+  border: 100px grgb(5, 255, 5);
+}
+h1 {
+  display: flex;
+  align-items: center;
+  color: rgb(0, 255, 64);
+  flex: 1;
+  margin: 0;
+}
+#nav-ul {
+  list-style-image: none;
+}
+.nav-li {
+  display: inline-block;
+  padding: 0 10px;
+}
+a {
+  text-decoration: none;
+  color: #13e56a;
+}
+
+/* main container area beneath menu */
+main {
+  background: rgb(0, 0, 0);
+  display: flex;
+}
+.sidebar {
+  margin-right: 25px;
+  padding: 10px;
+}
+.sidebar-img {
+  width: 200px;
+}
+.content {
+  flex: 1;
+  padding: 15px;
+}
+
+/* portfolio styles */
+#interests {
+  border: 4px silver ridge;
+  padding: 8px;
+}
+h2,
+h3 {
+  margin: 0px;
+}
+
+#ALL-CONTENTS {
+  max-width: 800px;
+  margin: auto;
+}
+nav {
+  background: rgb(0, 0, 0);
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+  border: 20px snow;
+}
+
+/* responsive web design */
+@media screen and (min-width: 120px) and (max-width: 1080px) {
   main {
     height: 100ch;
-    zoom: 1.5;
     display: grid;
   }
 
@@ -45,31 +121,39 @@
   }
 
   #all-contents {
-     height: 100ch;
-     margin: none;
+    height: 100ch;
   }
 
   a {
-     font-size: 42px;
+    font-size: 42px;
   }
 
   .sidebar {
-      margin-right: 0px;
-      justify-content: center;
-      align-items: center;
+    margin-right: 0px;
+    justify-content: center;
+    align-items: center;
   }
 
   .sidebar-img {
-       width: 100%;
+    width: 100%;
   }
 
   p,
   li {
-       font-size: 24px;
+    font-size: 24px;
   }
 
   .content {
-       align-content: center;
-       justify-content: center;
+    align-content: center;
+    justify-content: center;
   }
+}
+
+/* Additional Changes */
+nav {
+  border-radius: 10px;
+}
+
+img {
+  border: 1px solid black;
 }
