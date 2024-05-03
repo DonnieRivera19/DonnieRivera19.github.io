@@ -41,14 +41,12 @@ If Runtime is not already installed, then you can install it manually. To do so,
 - `git clone https://github.com/operationspark/runtime`
 - `cd runtime`
 - `rm -rf .git*`
-- `npm install -g opspark`
+- `npm install -g bower`
 - `bower install`
 - `cd ../..`
 - `git add -A`
 - `git commit -m "added runtime"`
 - `git push`
-
-> **WARNING:** the `npm install -g opspark` command may take a while to complete
 
 ## Run the program
 
