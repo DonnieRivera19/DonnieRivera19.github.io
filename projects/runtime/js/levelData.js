@@ -18,7 +18,15 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 400, y: groundY },
           { type: "sawblade", x: 600, y: groundY },
           { type: "sawblade", x: 900, y: groundY },
-        ],
+          { type: "reward", x: 2000, y: groundY - 60 },
+          { type: "enemy", x: 1200, y: groundY },
+          { type: "endOfLevel", x: 2800, y: groundY },
+          // Add at least one of each type of object
+          { type: "sawblade", x: 1000, y: groundY },
+          { type: "enemy", x: 1500, y: groundY },
+          { type: "reward", x: 2200, y: groundY - 60 },
+          { type: "endOfLevel", x: 3200, y: groundY },
+        ]
       },
       {
         name: "Robot Rampage",
@@ -28,10 +36,21 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 400, y: groundY },
           { type: "sawblade", x: 600, y: groundY },
           { type: "sawblade", x: 900, y: groundY },
-        ],
-      },
+          { type: "reward", x: 1800, y: groundY - 60 },
+          { type: "enemy", x: 1000, y: groundY },
+          { type: "endOfLevel", x: 2400, y: groundY },
+          // Add at least one of each type of object
+          { type: "sawblade", x: 1200, y: groundY },
+          { type: "enemy", x: 1700, y: groundY },
+          { type: "reward", x: 2600, y: groundY - 60 },
+          { type: "endOfLevel", x: 3600, y: groundY },
+        ]
+      }
     ];
+    
     window.opspark.levelData = levelData;
+  
+  window.opspark.levelData = levelData;
   };
 };
 
