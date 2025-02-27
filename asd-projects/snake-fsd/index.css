@@ -11,7 +11,7 @@ body {
 }
 
 #score, #highScore {
-  color: white;
+  color: rgb(200, 255, 0);
 }
 
 .snake, .apple {
