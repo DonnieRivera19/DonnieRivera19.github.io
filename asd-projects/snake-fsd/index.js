@@ -43,11 +43,13 @@ init();
 
 function init() {
   // TODO 4c-2: initialize the snake
-
+  snake.body = [];
+  makeSnakeSquare(10, 10); //Initialize the sneak head
+  snake.head = snake.body[0];
   // TODO 4b-2: initialize the apple
   makeApple();
   // TODO 5a: Initialize the interval
-
+  updateInterval = setInterval(update, 100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,6 +62,14 @@ function init() {
  */
 function update() {
   // TODO 5b: Fill in the update function's code block
+  moveSnake();
+
+  if (hasHitWall() || hasCollidedWithSnake()) {
+    endGame();
+  }
+  if (hasCollidedWithApple) {
+    handleAppleCollision();
+  }
 }
 
 function checkForNewDirection(event) {
@@ -70,9 +80,10 @@ function checkForNewDirection(event) {
   perpendicular to the current direction
   */
 
-  if (activeKey === KEY.LEFT) {
+  if (activeKey === KEY.LEFT && snake.head.direction !== "right") {
     snake.head.direction = "left";
   }
+  if (activeKey === KEY.RIGHT)
 
   // FILL IN THE REST
 
