@@ -1,4 +1,8 @@
-/* global $, sessionStorage */
+//global $, sessionStorage
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////// VARIABLE DECLARATIONS ////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 // HTML jQuery Objects
 var board = $("#board");
@@ -41,13 +45,10 @@ init();
 function init() {
   // TODO 4c-2: initialize the snake
   snake.body = [];
-  makeSnakeSquare(10, 10); // Initialize the snake's head
+  makeSnakeSquare(10, 10); // Initialize the snake head at (10, 10)
   snake.head = snake.body[0];
-  snake.head.direction = "right"; // Initial direction
-
   // TODO 4b-2: initialize the apple
   makeApple();
-
   // TODO 5a: Initialize the interval
   updateInterval = setInterval(update, 100);
 }
@@ -85,6 +86,7 @@ function checkForNewDirection(event) {
     snake.head.direction = "left";
   }
 
+  // FILL IN THE REST
   if (activeKey === KEY.RIGHT && snake.head.direction !== "left") {
     snake.head.direction = "right";
   }
@@ -108,9 +110,23 @@ function moveSnake() {
 
   */
 
+  for (var i = snake.body.length - 1; i > 0; i--) {
+    var snakeSquare = snake.body[i];
+    var nextSnakeSquare = snake.body[i - 1];
+
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
+
+    snakeSquare.direction = nextDirection;
+    snakeSquare.row = nextRow;
+    snakeSquare.column = nextColumn;
+    repositionSquare(snakeSquare);
+  }
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
 
+  
   // TODO 7: determine the next row and column for the snake's head
   if (snake.head.direction === "left") {
     snake.head.column = snake.head.column - 1;
@@ -126,13 +142,6 @@ function moveSnake() {
   }
 
   repositionSquare(snake.head);
-
-  // Move the body
-  for (var i = snake.body.length - 1; i > 0; i--) {
-    snake.body[i].row = snake.body[i - 1].row;
-    snake.body[i].column = snake.body[i - 1].column;
-    repositionSquare(snake.body[i]);
-  }
 
   /*
   HINT: The snake's head will need to move forward 1 square based on the value
@@ -185,21 +194,27 @@ function handleAppleCollision() {
   etc...
   */
 
-  var row = snake.tail.row;
-  var column = snake.tail.column;
-
+  var row = 0;
+  var column = 0;
   if (snake.tail.direction === "left") {
-    column++;
+    row = snake.tail.row;
+    column = snake.tail.column + 1;
   }
   if (snake.tail.direction === "right") {
-    column--;
+    row = snake.tail.row;
+    column = snake.tail.column - 1;
   }
   if (snake.tail.direction === "up") {
-    row++;
+    row = snake.tail.row + 1;
+    column = snake.tail.column;
   }
   if (snake.tail.direction === "down") {
-    row--;
+    row = snake.tail.row - 1;
+    column = snake.tail.column;
   }
+
+     
+  // code to determine the row and column of the snakeSquare to add to the snake
 
   makeSnakeSquare(row, column);
 }
@@ -211,7 +226,6 @@ function hasCollidedWithSnake() {
 
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
-
   */
   for (var i = 1; i < snake.body.length; i++) {
     if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column) {
@@ -254,6 +268,7 @@ function makeApple() {
   apple.column = randomPosition.column;
 
   repositionSquare(apple);
+
 }
 
 /* Create an HTML element for a snakeSquare using jQuery. Then, given a row and
@@ -273,11 +288,13 @@ function makeSnakeSquare(row, column) {
 
   if (snake.body.length === 0) {
     snakeSquare.element.attr("id", "snake-head");
+
   }
 
   snake.body.push(snakeSquare);
 
   snake.tail = snakeSquare;
+
 }
 
 /*
@@ -319,7 +336,7 @@ function getRandomAvailablePosition() {
   var randomPosition = {};
 
   /* Generate random positions until one is found that doesn't overlap with the snake */
-  do {
+  while (!spaceIsAvailable) {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
@@ -335,7 +352,7 @@ function getRandomAvailablePosition() {
         break;
       }
     }
-  } while (!spaceIsAvailable);
+  }
 
   return randomPosition;
 }
